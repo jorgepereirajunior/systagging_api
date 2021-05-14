@@ -1,0 +1,5 @@
+#DEPENDECIES
+node_modules
+
+#YARN FILES
+yarn.lock
