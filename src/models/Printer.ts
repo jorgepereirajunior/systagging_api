@@ -1,4 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  JoinColumn
+} from 'typeorm'
+
+import Client from './Client'
 
 @Entity('printers')
 export default class Printer {
@@ -11,4 +19,8 @@ export default class Printer {
 
   @Column()
   model: string
+
+  @OneToMany(type => Client, client => client.printer)
+  @JoinColumn({ name: 'printer_id'})
+  client: Client[]
 }
