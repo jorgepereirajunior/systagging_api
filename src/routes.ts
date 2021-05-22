@@ -1,22 +1,11 @@
 import { Router } from 'express'
 
-import { getRepository } from 'typeorm'
-import Printer from './models/Printer'
+import PrinterController from './controllers/PrinterController'
 
 const routes = Router()
 
-routes.post('/printers', async (req,res) => {
-  const printerRepository = getRepository(Printer)
-
-  const { manufacturer, model } = req.body
-
-  const data = { manufacturer, model}
-
-  const printer = printerRepository.create(data)
-
-  await printerRepository.save(printer)
-  
-  return res.status(201).json({ 'message': 'Object Added!'})
-})
+routes.get('/printers', PrinterController.index)
+routes.get('/printers/:id', PrinterController.show)
+routes.post('/printers', PrinterController.create)
 
 export default routes
