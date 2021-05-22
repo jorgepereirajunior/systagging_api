@@ -10,8 +10,8 @@
     "./src/database/migrations/*.ts"
   ],
 
-  "Entities": [
-    "./src/database/models/*.ts"
+  "entities": [
+    "./src/models/*.ts"
   ],
 
   "cli": {
