@@ -7,17 +7,11 @@ export class createTableClients1621715279484 implements MigrationInterface {
         name: 'clients',
         columns: [
           {
-            name: 'id',
-            type: 'integer',
-            isNullable: false,
-            isPrimary: true,
-            isGenerated: true,
-            generationStrategy: 'increment'
-          },
-          {
-            name: 'codigo',
+            name: 'code',
             type: 'varchar(10)',
             isNullable: false,
+            isUnique: true,
+            isPrimary: true
           },
           {
             name: 'name',

@@ -1,21 +1,20 @@
 import {
   Entity,
   Column,
-  PrimaryGeneratedColumn,
+  PrimaryColumn,
   ManyToOne,
+  OneToMany,
   JoinColumn
 } from 'typeorm'
 
 import Printer from './Printer'
+import Tag from './Tag'
 
 @Entity('clients')
 export default class Client {
 
-  @PrimaryGeneratedColumn('increment')
-  id: number
-
-  @Column()
-  codigo: string
+  @PrimaryColumn()
+  code: string
 
   @Column()
   name: string
@@ -26,4 +25,10 @@ export default class Client {
   @ManyToOne(type => Printer, printer => printer.client)
   @JoinColumn({ name: 'printer_id'})
   printer: Printer
+
+  @OneToMany(type => Tag, tag => tag.client, {
+    cascade: ['insert', 'update']
+  })
+  @JoinColumn({ name: 'client_code'})
+  tags: Tag[]
 }

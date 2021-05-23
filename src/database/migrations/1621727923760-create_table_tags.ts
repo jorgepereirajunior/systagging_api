@@ -38,17 +38,17 @@ export class createTableTags1621727923760 implements MigrationInterface {
             type: 'text'
           },
           {
-            name: 'client_id',
-            type: 'integer',
+            name: 'client_code',
+            type: 'varchar(10)',
             isNullable: false
           }
         ],
         foreignKeys: [
           {
             name: 'TagToClient',
-            columnNames: ['client_id'],
+            columnNames: ['client_code'],
             referencedTableName: 'clients',
-            referencedColumnNames: ['id'],
+            referencedColumnNames: ['code'],
             onUpdate: 'CASCADE',
             onDelete: 'CASCADE'
           }

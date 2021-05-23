@@ -13,10 +13,10 @@ export default {
   },
 
   async show(req: Request, res: Response) {
-    const { id } = req.params
+    const { code } = req.params
     const clientRepository = getRepository(Client)
 
-    const client = await clientRepository.findOneOrFail(id)
+    const client = await clientRepository.findOneOrFail(code)
 
     return res.json(client)
   },
@@ -25,22 +25,25 @@ export default {
     const clientRepository = getRepository(Client)
 
     const {
-      codigo,
+      code,
       name,
       flag,
-      printer
+      printer,
+      tags
     } = req.body
 
     const data = {
-      codigo,
+      code,
       name,
       flag,
-      printer
+      printer,
+      tags
     }
 
     const client = clientRepository.create(data)
 
     await clientRepository.save(client)
+    // console.log(data)
 
     return res.status(201).json({ 'message': 'Object Added!'})
   }

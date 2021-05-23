@@ -6,7 +6,7 @@ import ClientController from './controllers/ClientController'
 const routes = Router()
 
 routes.get('/clients', ClientController.index)
-routes.get('/clients/:id', ClientController.show)
+routes.get('/clients/:code', ClientController.show)
 routes.post('/clients', ClientController.create)
 
 routes.get('/printers', PrinterController.index)
