@@ -5,7 +5,7 @@
   "author": "Jorginho <jorgejunior.jpj2016@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node ./src/server.js",
+    "start": "node ./dist/server.js",
     "build": "tsc",
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules ./src/server.ts",
     "typeorm": "ts-node-dev node_modules/typeorm/cli.js"
