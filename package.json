@@ -5,10 +5,13 @@
   "author": "Jorginho <jorgejunior.jpj2016@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "node ./src/server.js",
+    "tsc": "tsc",
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules ./src/server.ts",
     "typeorm": "ts-node-dev node_modules/typeorm/cli.js"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "typeorm": "^0.2.32"

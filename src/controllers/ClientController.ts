@@ -7,7 +7,9 @@ export default {
   async index(req: Request, res: Response) {
     const clientRepository = getRepository(Client)
 
-    const clients = await clientRepository.find()
+    const clients = await clientRepository.find({
+      relations: ['printer', 'tags']
+    })
 
     return res.json(clients)
   },
@@ -16,7 +18,9 @@ export default {
     const { code } = req.params
     const clientRepository = getRepository(Client)
 
-    const client = await clientRepository.findOneOrFail(code)
+    const client = await clientRepository.findOneOrFail(code, {
+      relations: ['printer', 'tags']
+    })
 
     return res.json(client)
   },

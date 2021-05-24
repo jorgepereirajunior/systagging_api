@@ -1,5 +1,9 @@
 #DEPENDECIES
 node_modules
 
+
+#ENVIRONMENT VARIABLES
+.env
+
 #YARN FILES
 yarn.lock
