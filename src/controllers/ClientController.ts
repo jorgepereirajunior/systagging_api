@@ -50,5 +50,22 @@ export default {
     // console.log(data)
 
     return res.status(201).json({ 'message': 'Object Added!'})
+  },
+
+  async delete(req: Request, res: Response) {
+    const { code } = req.params
+    const clientRepository = getRepository(Client)
+
+    const client = await clientRepository.findOne({
+      where:{code: code}
+    })
+
+    if (client) {
+      await clientRepository.delete(code)
+      return res.status(200).json({ 'message': 'Object Deleted!'})
+    } else {
+      return res.status(404).json({ 'message': 'Object not found!'})
+    }
+
   }
 }

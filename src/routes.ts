@@ -9,6 +9,7 @@ const routes = Router()
 routes.get('/clients', ClientController.index)
 routes.get('/clients/:code', ClientController.show)
 routes.post('/clients', ClientController.create)
+routes.delete('/clients/:code', ClientController.delete)
 
 routes.get('/printers', PrinterController.index)
 routes.get('/printers/:id', PrinterController.show)
